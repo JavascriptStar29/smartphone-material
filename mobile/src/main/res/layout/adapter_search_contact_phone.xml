@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dip"
+    android:background="?attr/mainBackgroundColor"
+    tools:context=".MainActivity">
+
+
+    <View
+        android:id="@+id/clickableView"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="onRecentContactClick" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="72dip">
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="?attr/contactDescriptionColor"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/phone_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:paddingRight="16dip"
+            android:singleLine="true"
+            android:textColor="?attr/contactDescriptionColor"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>
+

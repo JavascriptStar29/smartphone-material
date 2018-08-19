@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    >
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/smart_contact_height"
+        >
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:tint="#20000000"/>
+
+        <TextView
+            android:id="@+id/character"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="44sp"
+            android:paddingLeft="@dimen/default_margin_12"
+            android:gravity="left"
+            android:textColor="?attr/contactCharacterColor"
+            />
+
+        <View
+            android:id="@+id/clickableView"
+            android:onClick="onContactClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"/>
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="4dip"
+            android:paddingBottom="4dip"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="onContactMoreClick"
+            android:src="@drawable/ic_more_vert"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/default_margin_12"
+                android:paddingRight="@dimen/default_margin_12"
+                android:paddingBottom="@dimen/default_margin_8"
+                android:paddingTop="@dimen/default_margin_8"
+                android:textColor="?attr/smartContactNameColor"
+                android:background="@drawable/bg_smart_text"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                />
+        </FrameLayout>
+    </RelativeLayout>
+</FrameLayout>

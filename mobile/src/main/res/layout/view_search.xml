@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_search_bar"
+    android:layout_marginBottom="@dimen/default_margin_4"
+    android:layout_marginLeft="@dimen/default_margin_8"
+    android:layout_marginRight="@dimen/default_margin_8"
+    android:layout_marginTop="@dimen/default_margin_8"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardBackgroundColor="?attr/cardBackgroundColor"
+    tools:showIn="@layout/activity_main">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="24dip"
+                android:paddingRight="24dip"
+                android:background="?attr/selectableItemBackground"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/search_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@id/arrow"
+                android:text="@string/dialer_hint_find_contact"
+                android:background="@null"
+                android:textAppearance="@android:style/TextAppearance.Theme"
+                android:textColor="?attr/groupHeaderColor" />
+
+            <EditText
+                android:id="@+id/search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@id/arrow"
+                android:hint="@string/dialer_hint_find_contact"
+                android:background="@null"
+                android:singleLine="true"
+                android:visibility="invisible"
+                android:textColor="?attr/contactNameColor"
+                android:textColorHint="?attr/groupHeaderColor"
+                android:textAppearance="@android:style/TextAppearance.Theme"
+                />
+
+            <ImageView
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="12dip"
+                android:paddingRight="12dip"
+                android:src="@drawable/abc_ic_clear_mtrl_alpha"
+                android:tint="?attr/groupHeaderColor"
+                android:visibility="invisible"
+                android:background="?attr/selectableItemBackground"
+                android:layout_alignParentRight="true"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+</android.support.v7.widget.CardView>

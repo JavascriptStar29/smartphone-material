@@ -1,0 +1,129 @@
+buildscript {
+    repositories {
+        maven { url 'http://download.crashlytics.com/maven' }
+    }
+
+    dependencies {
+        classpath 'com.crashlytics.tools.gradle:crashlytics-gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'crashlytics'
+
+repositories {
+    maven { url 'http://download.crashlytics.com/maven' }
+}
+
+apply plugin: 'idea'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    signingConfigs {
+        debug {
+            storeFile file(KEYSTORE_PATH)
+            storePassword KEYSTORE_STORE_PASSWORD
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+        }
+        release {
+            storeFile file(KEYSTORE_PATH)
+            storePassword KEYSTORE_STORE_PASSWORD
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+        }
+    }
+
+    defaultConfig {
+        applicationId "mobi.wrt.android.smartcontacts"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 6
+        versionName "1.0.5"
+
+        buildConfigField "String", "MAT_ADVERTISER_ID", MAT_ADVERTISER_ID
+        buildConfigField "String", "MAT_CONVERSION_KEY", MAT_CONVERSION_KEY
+        buildConfigField "String", "FLURRY_KEY", FLURRY_KEY
+        buildConfigField "String", "GOOGLE_ANALYTICS_KEY", GOOGLE_ANALYTICS_KEY
+        buildConfigField "String", "GOOGLE_SENDER_ID", GOOGLE_SENDER_ID
+
+    }
+    lintOptions {
+        disable 'MissingTranslation', 'ExtraTranslation'
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "market", "version"
+    productFlavors {
+            free {
+                flavorDimension "version"
+            }
+            pro {
+                flavorDimension "version"
+                applicationId "mobi.wrt.android.smartcontacts.pro"
+            }
+            google {
+                flavorDimension "market"
+                buildConfigField "String", "MARKET_URL", "\"https://play.google.com/store/apps/details?id=\""
+                buildConfigField "String", "MARKET_VERSION", "\"google\""
+            }
+            opera {
+                flavorDimension "market"
+                buildConfigField "String", "MARKET_URL", "\"https://play.google.com/store/apps/details?id=\""
+                buildConfigField "String", "MARKET_VERSION", "\"opera\""
+            }
+            yandex {
+                flavorDimension "market"
+                buildConfigField "String", "MARKET_URL", "\"https://play.google.com/store/apps/details?id=\""
+                buildConfigField "String", "MARKET_VERSION", "\"yandex\""
+            }
+            samsung {
+                flavorDimension "market"
+                buildConfigField "String", "MARKET_URL", "\"http://www.samsungapps.com/appquery/appDetail.as?appId=\""
+                buildConfigField "String", "MARKET_VERSION", "\"samsung\""
+            }
+        }
+    }
+
+
+    idea {
+        module {
+            //sourceDirs += file("\\android-sdk-macosx\\sources\\android-22\\")
+            //sourceDirs += file("E:\\Android\\sources\\platform_frameworks_support\\v7\\appcompat\\src")
+        }
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        freeCompile fileTree(dir: 'free_libs', include: ['*.jar'])
+        //wearApp project(':wear')
+        compile 'com.android.support:appcompat-v7:22.1.1'
+        compile 'com.android.support:recyclerview-v7:22.1.1'
+        compile 'com.android.support:cardview-v7:22.1.1'
+        compile 'com.melnykov:floatingactionbutton:1.1.0'
+        compile 'com.android.support:palette-v7:22.1.1'
+        compile project(':module_android_xcore:xcore-library:xcore')
+        compile 'com.squareup.picasso:picasso:2.4.0'
+        compile 'com.melnykov:floatingactionbutton:1.3.0'
+
+        //compile 'com.google.android.gms:play-services:7.0.0'
+        //compile 'com.google.android.gms:play-services:6.5.+'
+
+        compile 'com.google.android.gms:play-services-plus:7.3.0'
+
+        compile 'com.google.android.gms:play-services-analytics:7.3.0'
+        compile 'com.google.android.gms:play-services-gcm:7.3.0'
+        compile 'com.google.android.gms:play-services-wearable:7.3.0'
+
+
+        compile 'com.crashlytics.android:crashlytics:1.+'
+        compile 'com.facebook.android:facebook-android-sdk:4.0.1'
+    }
+

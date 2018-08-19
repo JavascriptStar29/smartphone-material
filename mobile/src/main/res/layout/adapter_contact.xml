@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="58dip"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/clickableView"
+        android:layout_width="match_parent"
+        android:layout_height="58dip"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="onContactClick" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:layout_marginTop="8dip"
+        android:onClick="onContactMoreClick"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/character"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="16dip"
+        android:paddingTop="8dip"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:textColor="?attr/contactCharacterColor"
+        android:layout_marginTop="8dip" />
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="17dip"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:layout_alignParentRight="true"
+        android:paddingTop="17dip"
+        android:tint="?attr/contactDescriptionColor"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="onStarClick"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/icon_size"
+        android:layout_toRightOf="@id/icon"
+        android:layout_toLeftOf="@id/star"
+        android:ellipsize="end"
+        android:paddingTop="16dip"
+        android:paddingRight="16dip"
+        android:singleLine="true"
+        android:textColor="?attr/contactNameColor"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>
